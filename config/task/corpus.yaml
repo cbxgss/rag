@@ -1,0 +1,6 @@
+name: corpus
+batch_size: 512
+build_embedding: True
+build_index: True
+
+suffix: "-${corpus}"

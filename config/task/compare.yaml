@@ -1,0 +1,3 @@
+name: compare
+base_llm: gpt-4o-mini
+suffix: ""

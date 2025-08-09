@@ -1,0 +1,12 @@
+name: genground
+
+max_iter: 5
+
+retrieve:
+    topk: 50
+    rerank_topk: 10
+
+batch: 3
+
+decuce_answer: ${task.base_llm}    # ${task.base_llm} qwen2.5-7b
+ground: ${task.base_llm}    # ${task.base_llm} qwen2.5-7b

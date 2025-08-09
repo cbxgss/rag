@@ -1,0 +1,49 @@
+defaults:
+  - _self_
+  - task: rag  # corpus rag
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+
+main: ${task.name}
+
+dataset: 2wikimultihopqa   # popqa nq eli5 hotpotqa 2wikimultihopqa musique bamboogle strategyqa multihopqa
+corpus: ${dataset}   # wikipedia flashrag hotpotqa 2wikimultihopqa musique
+
+workspace: tmp
+path:
+  corpus_pkl: ${workspace}/${corpus}.pkl
+  embedding: ${workspace}/${corpus}.memmap
+  index: ${workspace}/${corpus}.index
+
+timestamp: ${now:%m%d_%H%M%S}
+seed: 0
+description: none
+log: info  # info debug
+
+log_config:
+  log_file: true
+  log_dir: outputs
+  log_name: ${timestamp}${task.suffix}
+  base_log_dir: ${log_config.log_dir}/${main}/${dataset}/${log_config.log_name}
+
+hydra:
+  run:
+    dir: ${log_config.base_log_dir} # 设置日志输出的目录
+  job_logging:
+    handlers:
+      console:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: colorlog
+      file:
+        class: logging.FileHandler
+        filename: ${log_config.base_log_dir}/main.log
+        level: INFO
+        formatter: simple
+    formatters:
+      simple:
+        format: '[%(levelname)s] - [%(asctime)s][%(name)s](%(pathname)s:%(lineno)d) %(message)s'
+        datefmt: '%Y-%m-%d %H:%M:%S'
+      colorlog:
+        format: '[%(log_color)s%(levelname)s%(reset)s] - [%(cyan)s%(asctime)s%(reset)s](%(pathname)s:%(lineno)d) %(message)s'
+        datefmt: '%Y-%m-%d %H:%M:%S'

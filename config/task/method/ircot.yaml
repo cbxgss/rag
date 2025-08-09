@@ -1,0 +1,10 @@
+name: ircot
+
+
+retrieve:
+    llm: ${task.base_llm}
+    topk: 50
+    rerank_topk: 10
+    rerank_filter: true
+
+max_iter: 5

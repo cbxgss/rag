@@ -1,0 +1,8 @@
+name: flare
+
+base_llm: ${task.base_llm}
+
+threshold: 0.2
+look_ahead_steps: 64
+max_generation_length: 256
+max_iter_num: 5

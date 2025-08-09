@@ -1,0 +1,32 @@
+[project]
+name = "dualrag"
+version = "0.1.0"
+description = "DualRAG"
+readme = "README.md"
+requires-python = "==3.10.16"
+dependencies = [
+    "omegaconf>=2.3.0",
+    "hydra-colorlog>=1.2.0",
+    "tqdm>=4.67.1",
+    "dotenv>=0.9.9",
+    "uvicorn>=0.34.0",
+    "base58>=2.1.1",
+    "aiohttp>=3.11.14",
+    "tenacity>=9.0.0",
+    "nltk>=3.9.1",
+    "pytrec-eval>=0.5",
+    "rouge>=1.0.1",
+    "huggingface-hub>=0.30.2",
+    "datasets>=3.5.0",
+    "fastapi>=0.115.12",
+    "cr-utils @ git+https://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@github.com/cbxgss/cr_utils.git",
+    "sentence-transformers",
+]
+
+[project.optional-dependencies]
+retrieve = [
+    "faiss-gpu-cu12",
+]
+llm = [
+    "vllm",
+]

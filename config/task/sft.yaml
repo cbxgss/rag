@@ -1,0 +1,8 @@
+name: sft
+
+model_dir: download/model/Qwen/Qwen2.5-0.5B
+
+batch_size: 128
+per_device_batch_size: 16
+
+suffix: ""

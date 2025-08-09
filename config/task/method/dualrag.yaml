@@ -1,0 +1,19 @@
+name: dualrag
+
+max_iter: 5
+
+retrieve:
+    topk: 50
+    rerank_topk: 10
+    rerank_abl: false
+
+# ${task.base_llm} qwen2.5-72b qwen2.5-7b qwen2.5-7b-ft0 qwen2.5-7b-ft1
+infer: ${task.base_llm}
+EI: ${task.base_llm}
+KS: ${task.base_llm}
+
+abl:
+    infer: false
+    EI: false
+    EI2: false
+    KS: false

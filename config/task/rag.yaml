@@ -1,0 +1,16 @@
+defaults:
+  - method: dualrag # direct native ircot metarag genground flare dualrag oracle
+  - _self_
+name: rag
+suffix: -${task.method.name}
+
+exp_size: 1000      # 0 时全部数据集
+batch_size: 20
+
+retrieve:
+  topk: 50
+  rerank_topk: 10
+
+# qwen2.5-72b gpt-4o-mini llama3.1-70b mistral-small Qwen/Qwen2.5-72B-Instruct
+base_llm: Qwen/Qwen2.5-7B-Instruct
+eval_llm: Qwen/Qwen2.5-7B-Instruct

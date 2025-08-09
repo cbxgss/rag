@@ -1,0 +1,17 @@
+.DS_Store
+uv.lock
+
+.idea
+.vscode
+
+lib
+
+__pycache__
+.cache
+.ipynb_checkpoints
+
+assets
+download
+.env
+outputs
+tmp

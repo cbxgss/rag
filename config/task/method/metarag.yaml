@@ -1,0 +1,8 @@
+name: metarag
+
+max_iter: 5
+threshold: 0.3
+expert_model: t5
+
+device:
+  monitor: 0
